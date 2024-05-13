@@ -1,0 +1,6 @@
+@import "grid.scss";
+
+.user-form-container{
+    @include col;
+    gap: 5px
+}
