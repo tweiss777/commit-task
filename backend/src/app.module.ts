@@ -9,19 +9,19 @@ import { MongooseModule } from '@nestjs/mongoose';
 import config from './config/config';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      load: [config],
-    }),
-    MongooseModule.forRoot(process.env.MONGO_CONNECTION_STRING),
-    ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '../../frontend', 'dist/'),
-    exclude: ['/api*'],
-    }),
-    UsersModule,
-  ],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        ConfigModule.forRoot({
+            isGlobal: true,
+            load: [config],
+        }),
+        MongooseModule.forRoot(process.env.MONGO_CONNECTION_STRING),
+        ServeStaticModule.forRoot({
+            rootPath: join(__dirname, '../../frontend', 'dist/'),
+            exclude: ['/api*'],
+        }),
+        UsersModule,
+    ],
+    controllers: [AppController],
+    providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }
